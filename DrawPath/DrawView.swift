@@ -9,9 +9,12 @@
 import UIKit
 
 class DrawView: UIView {
-
+    var bezier : UIBezierPath!
+    var needDrawRect : Bool = false
     override func draw(_ rect: CGRect) {
-       let bezier = setupBPath()
+        if needDrawRect == false {
+            return
+        }
         bezier.lineWidth = 2
         bezier.lineJoinStyle = .round
         bezier.lineCapStyle = .round
@@ -21,7 +24,6 @@ class DrawView: UIView {
     
     func drawLayer() {
         let shapeLayer = CAShapeLayer()
-        let bezier = setupAPath()
         shapeLayer.path = bezier.cgPath
         shapeLayer.lineJoin = "round"
         shapeLayer.lineCap = "round"
@@ -31,8 +33,8 @@ class DrawView: UIView {
         layer.addSublayer(shapeLayer)
     }
     
-    func setupAPath() -> UIBezierPath {
-        let bezier = UIBezierPath()
+    func setupAPath() {
+        bezier = UIBezierPath()
         let plistPath = Bundle.main.path(forResource: "test", ofType: "plist")!
         let points = (NSArray.init(contentsOfFile: plistPath) as! [String]).map{CGPointFromString($0)}
         for (index,point) in points.enumerated() {
@@ -42,11 +44,10 @@ class DrawView: UIView {
                 bezier.addLine(to: point)
             }
         }
-        return bezier
     }
     
-    func setupBPath() -> UIBezierPath {
-        let bezier = UIBezierPath()
+    func setupBPath() {
+        bezier = UIBezierPath()
         for index in 0..<10000 {
             if index == 0 {
                 bezier.move(to: CGPoint.init(x: 0, y: 0))
@@ -55,7 +56,6 @@ class DrawView: UIView {
                 bezier.addLine(to: point)
             }
         }
-        return bezier
     }
     
     func points() -> [CGPoint] {

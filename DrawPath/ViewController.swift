@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var drawView : DrawView!
+    var drawView : DrawView?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,15 +22,48 @@ class ViewController: UIViewController {
         
     }
 
-    @IBAction func drawAction(_ sender: Any) {
+    @IBAction func drawRectAPathAction(_ sender: Any) {
+        drawView?.removeFromSuperview()
         drawView = DrawView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
-//        drawView.backgroundColor = .white
-        self.view.addSubview(drawView)
-        view.sendSubview(toBack: drawView)
-
+        drawView?.needDrawRect = true
+        drawView?.setupAPath()
+        self.view.addSubview(drawView!)
+        view.sendSubview(toBack: drawView!)
     }
 
 
+    @IBAction func drawRectBPathAction(_ sender: Any) {
+        drawView?.removeFromSuperview()
+        drawView = DrawView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
+        drawView?.needDrawRect = true
+        drawView?.setupBPath()
+        self.view.addSubview(drawView!)
+        view.sendSubview(toBack: drawView!)
+    }
+    
+
+    
+    @IBAction func drawLyerAPathAction(_ sender: Any) {
+        drawView?.removeFromSuperview()
+        drawView = DrawView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
+        drawView?.setupAPath()
+        self.view.addSubview(drawView!)
+        view.sendSubview(toBack: drawView!)
+        drawView?.drawLayer()
+    }
+
+    
+    @IBAction func drawLayerBPathAction(_ sender: Any) {
+        drawView?.removeFromSuperview()
+        drawView = DrawView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
+        drawView?.setupBPath()
+        self.view.addSubview(drawView!)
+        view.sendSubview(toBack: drawView!)
+        drawView?.drawLayer()
+    }
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

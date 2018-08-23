@@ -22,19 +22,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcc-MT-WHq">
-                                <rect key="frame" x="64" y="318" width="34" height="30"/>
+                                <rect key="frame" x="35" y="318" width="106" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="draw"/>
+                                <state key="normal" title="drawRectAPath"/>
                                 <connections>
-                                    <action selector="drawAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5mn-cM-gVb"/>
+                                    <action selector="drawRectAPathAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B3v-C7-gkX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9je-bi-6Kh">
-                                <rect key="frame" x="237" y="318" width="65" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Nm-do-jxl">
+                                <rect key="frame" x="32" y="375" width="112" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="getImage"/>
+                                <state key="normal" title="drawLayerAPath"/>
                                 <connections>
-                                    <action selector="getImageAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rac-7x-27B"/>
+                                    <action selector="drawLyerAPathAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Toy-bI-yKm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFq-V3-acA">
+                                <rect key="frame" x="208" y="318" width="106" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="drawRectBPath"/>
+                                <connections>
+                                    <action selector="drawRectBPathAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="77x-Ye-bMJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zuX-dX-toX">
+                                <rect key="frame" x="205" y="375" width="112" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="drawLayerBPath"/>
+                                <connections>
+                                    <action selector="drawLayerBPathAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4i3-nc-Ev0"/>
                                 </connections>
                             </button>
                         </subviews>
